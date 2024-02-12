@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 15,
             ),
             UiHelper.CustomTextfield(
-                emailController, "Password", Icons.lock_open_rounded, true),
+                passwordController, "Password", Icons.lock_open_rounded, true),
             SizedBox(
               height: 30,
             ),

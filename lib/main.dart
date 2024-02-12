@@ -1,14 +1,25 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:test8/loginpage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  Platform.isAndroid
+      ? await Firebase.initializeApp(
+          options: const FirebaseOptions(
+          apiKey: 'AIzaSyDHhnElZq40Cs-DmATTjaGkmn5Uep4ZFtg',
+          appId: '1:944054205674:android:7aa85f906c2c98a323ab93',
+          messagingSenderId: '944054205674',
+          projectId: 'fir-26f69',
+        ))
+      : await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
