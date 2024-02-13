@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:test8/adddata.dart';
 import 'package:test8/loginpage.dart';
 import 'package:test8/phoneauth.dart';
 import 'package:test8/showdata.dart';
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: NewSignUpPage(),
+      home: AddData(),
     );
   }
 }
