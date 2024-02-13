@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:test8/signup.dart';
 import 'package:test8/uihelpher.dart';
 
+import 'forgotpassword.dart';
 import 'main.dart';
 
 class LoginPage extends StatefulWidget {
@@ -79,7 +80,25 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ForgotPassword()));
+                  },
+                  child: Text(
+                    "Forgot Password?",
+                    style: TextStyle(fontSize: 16,),
+                  ),
+                ),
+              ],
+            ),
           ],
         ));
   }
