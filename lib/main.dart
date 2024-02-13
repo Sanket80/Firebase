@@ -7,16 +7,20 @@ import 'package:test8/loginpage.dart';
 import 'package:test8/phoneauth.dart';
 import 'package:test8/showdata.dart';
 
+import 'newsignup.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  String storageBucketUrl = 'gs://fir-26f69.appspot.com';
   Platform.isAndroid
       ? await Firebase.initializeApp(
-          options: const FirebaseOptions(
+          options:FirebaseOptions(
           apiKey: 'AIzaSyDHhnElZq40Cs-DmATTjaGkmn5Uep4ZFtg',
           appId: '1:944054205674:android:7aa85f906c2c98a323ab93',
           messagingSenderId: '944054205674',
           projectId: 'fir-26f69',
-        ))
+          storageBucket: storageBucketUrl,
+        ),)
       : await Firebase.initializeApp();
 
   runApp(const MyApp());
@@ -49,7 +53,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ShowData(),
+      home: NewSignUpPage(),
     );
   }
 }
