@@ -1,7 +1,14 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'main.dart';
+
 class OTPScreen extends StatefulWidget {
-  const OTPScreen({super.key});
+
+  String verificationId;
+  OTPScreen({super.key, required this.verificationId});
 
   @override
   State<OTPScreen> createState() => _OTPScreenState();
@@ -38,7 +45,15 @@ class _OTPScreenState extends State<OTPScreen> {
           SizedBox(
             height: 30,
           ),
-          ElevatedButton(onPressed: () {}, child: Text("Verify OTP")),
+          ElevatedButton(onPressed: () async {
+            try{
+              PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.credential(verificationId: widget.verificationId, smsCode: otpController.text);
+              FirebaseAuth.instance.signInWithCredential(phoneAuthCredential).then((value) => Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(title: "HomePage"))));
+            }
+            catch(e){
+              log(e.toString());
+            }
+          }, child: Text("Verify OTP")),
         ],
       ),
     );
